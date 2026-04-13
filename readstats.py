@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 # 2-CLAUSE BSD LICENCE
-#Copyright 2015-2021 Hugo Tabernero, Emilio Marfil, Jonay Gonzalez Hernandez, and David Montes
+#Copyright 2015-2026 Hugo Tabernero, Emilio Marfil, Jonay Gonzalez Hernandez, and David Montes
 #Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
 #1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
 #
@@ -8,7 +8,7 @@
 #
 #THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE
 from matplotlib import rc
-#rc('font',**{'family':'serif','serif':['Times']})#,'size': 9})
+rc('font',**{'family':'serif','serif':['Times']})#,'size': 9})
 import matplotlib.pyplot as plt
 import _pickle as pic
 import numpy as np
@@ -32,10 +32,10 @@ samples=chain.reshape((-1, len(chain[0,0,:])))
 #SteParSyn samples Teff/1000. instead of Teff
 samples[:,0] = 1000.*samples[:,0]
 
-params = ('$T_\mathrm{eff}$ [K]',
-          '$\log{g}$ [dex]',
-          '[Fe/H] [dex]',
-          '$V_\mathrm{broad}$ [km s$^{-1}$]')
+params = (r'$T_\mathrm{eff}$ [K]',
+          r'$\log{g}$ [dex]',
+          r'[Fe/H] [dex]',
+          r'$V_\mathrm{broad}$ [km s$^{-1}$]')
 GTC = pygtc.plotGTC(chains=[samples],
                     paramNames=params,
                     nContourLevels =3,

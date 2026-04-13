@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 # 2-CLAUSE BSD LICENCE
-#Copyright 2015-2021 Hugo Tabernero, Jonay Gonzalez Hernandez, Emilio Marfil, and David Montes
+#Copyright 2015-2026 Hugo Tabernero, Jonay Gonzalez Hernandez, Emilio Marfil, and David Montes
 #Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
 #1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
 #
@@ -10,9 +10,10 @@
 
 from astropy.convolution import convolve
 from astropy.modeling.functional_models import Voigt1D
-from scipy import interpolate, special, mean
+from scipy import interpolate, special#, mean
 import scipy.signal as ss
 import numpy as np
+from numpy import mean
 import matplotlib.pyplot as plt
 
 def vlambda(inlamb,vstep):
@@ -27,13 +28,13 @@ def vlambda(inlamb,vstep):
     w1=inlamb[iw1[0]+1]
     w2=inlamb[iw2[0]-1]
 
-    npix=np.long((iw2[0]-1)-(iw1[0]+1)*vstep)
+    npix=np.int64((iw2[0]-1)-(iw1[0]+1)*vstep)
     wmid=np.sqrt(w1*w2)
     vave=vlight*(10.**(np.log10(w2/w1)/(npix-1.))-1.)
     dwave=(np.log10(w2)-np.log10(w1))/(npix-1.)
 
-    vwavel=np.log10(wmid)-(dwave*np.arange(np.long(npix/2.)))
-    vwaveu=np.log10(wmid)+(dwave*np.arange(np.long(npix/2.)))
+    vwavel=np.log10(wmid)-(dwave*np.arange(np.int64(npix/2.)))
+    vwaveu=np.log10(wmid)+(dwave*np.arange(np.int64(npix/2.)))
     vwavel=10.**vwavel[1:len(vwavel)-1]
     vwavel=np.sort(vwavel)
     vwaveu=10.**vwaveu[1:len(vwaveu)-1]
@@ -59,7 +60,7 @@ def conkern(inlamb, influx, vbroad, ldc, kop, channel=None):
         w2=inlamb[iw2[0]-1]
         tck=interpolate.splrep(inlamb,influx,k=3, s=0)
         vflux=interpolate.splev(vwave,tck,der=0)
-        npix=np.long((iw2[0]-1)-(iw1[0]+1)*vstep)
+        npix=np.int64((iw2[0]-1)-(iw1[0]+1)*vstep)
         wmid=np.sqrt(w1*w2)
         vave=vlight*(10.**(np.log10(w2/w1)/(npix-1.))-1.)
 	

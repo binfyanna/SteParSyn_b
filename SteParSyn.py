@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 # 2-CLAUSE BSD LICENCE
-#Copyright 2015-2021 Hugo Tabernero, Emilio Marfil, Jonay Gonzalez Hernandez, and David Montes
+#Copyright 2015-2026 Hugo Tabernero, Emilio Marfil, Jonay Gonzalez Hernandez, and David Montes
 #Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
 #1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
 #
@@ -77,9 +77,9 @@ def read_opt(name):
     error_map      = opt_pars[1]
     resol_wave     = float(opt_pars[2])
     threshold      = float(opt_pars[3])
-    nwalk_fact     = np.compat.long(opt_pars[4])
-    nburn          = np.compat.long(opt_pars[5])
-    nsteps         = np.compat.long(opt_pars[6])
+    nwalk_fact     = np.int64(opt_pars[4])
+    nburn          = np.int64(opt_pars[5])
+    nsteps         = np.int64(opt_pars[6])
     range_file     = opt_pars[7]
     mask_file      = opt_pars[8]
     config_file    = opt_pars[9]
@@ -520,7 +520,7 @@ def do_curve_fit(initial_point,flux,eflux,wave,tol):
     return param_result,cov,err_fact
 
 def set_walkers(initial,svec,nwalkers,ndim):
-    nfact = np.compat.long(nwalkers/ndim)
+    nfact = np.int64(nwalkers/ndim)
     p0 = []
     for i in range(ndim):
         dvec = np.zeros(ndim)
