@@ -87,5 +87,24 @@ If you have any doubts please do not hesitate to e-mail me.
 
 
 
+Extras_b
+
+	- CONFIG: 
+Teff – Effective temperature of the star in units of 1000 K (5.777 → 5777 K, i.e. the Sun). Free to fit between 3500–7000 K.
+logg – Surface gravity (log g). Free to fit between 0.0–5.5. Solar value is ~4.44.
+MH – Metallicity [M/H]. Free to fit between −2.0 and +1.0. Solar is 0.0.
+RV – Radial velocity in km/s. Fixed at 0.0 (likely pre-corrected).
+Resolution – Spectral resolution (R = λ/Δλ). Fixed at 85000, marked as global (g), meaning it applies to the whole spectrum.
+vsini – Projected rotational velocity in km/s. Free to fit (3.8 km/s initial guess), marked r (relative treatment). Bounded 0.2–100 km/s.
+vmac – Macroturbulence velocity in km/s. Fixed at 0.0.
+ldc – Limb darkening coefficient. Fixed at 0.6.
+Omega – Often an instrumental or continuum offset parameter. Fixed at 0.0.
+A_v – Extinction (dust reddening). Fixed at 0.0 (no reddening assumed).
+log_sigma – Log of noise/scatter amplitude (Gaussian process parameter). Fixed.
+log_rho – Log of correlation length (Gaussian process parameter). Fixed.
+
+
+
+
 
 
