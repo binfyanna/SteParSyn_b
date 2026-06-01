@@ -1,1 +1,1 @@
-./runone.sh sun_vesta hermes MCMC
+./runone.sh J17578+046 carmenes MCMC

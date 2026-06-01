@@ -18,7 +18,8 @@ import astropy.io.ascii as at
 from scipy.interpolate import griddata, splrep, splev
 from scipy.optimize import minimize
 from multiprocessing import Pool
-import convsyn as cs
+
+import convsynvoigtnew as cs
 import matplotlib.pyplot as plt
 from astropy.modeling import models, fitting
 import extinction
