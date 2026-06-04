@@ -1,0 +1,15 @@
+NAMES VALUES    
+flux_log_scale  False                                          
+error_map   True                                         
+resol_wave  0.1
+threshold     3.0
+nwalk_fact      4
+nburn             100 
+nsteps            500
+range_file        Mdwarf                                          
+mask_file         J17578+046                                          
+config_file       J17578+046                                          
+name_grid         Grid_BT
+gp_type           errfact
+gp_active         none
+joint_prior_type  none 

@@ -1,1 +1,1 @@
-./readone.sh sun_vesta
+./readone.sh J17578+046

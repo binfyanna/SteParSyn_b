@@ -33,8 +33,8 @@ samples=chain.reshape((-1, len(chain[0,0,:])))
 samples[:,0] = 1000.*samples[:,0]
 
 params = (r'$T_\mathrm{eff}$ [K]',
-          r'$\log{g}$ [dex]',
-          r'[Fe/H] [dex]',
+         # r'$\log{g}$ [dex]',
+         # r'[Fe/H] [dex]',
           r'$V_\mathrm{broad}$ [km s$^{-1}$]')
 GTC = pygtc.plotGTC(chains=[samples],
                     paramNames=params,
@@ -47,16 +47,16 @@ GTC = pygtc.plotGTC(chains=[samples],
 
 
 Teff,eTeff=momenta(samples[:,0])
-logg,elogg = momenta(samples[:,1])
-MH,eMH = momenta(samples[:,2])
-vbroad,evbroad= momenta(samples[:,3])
+#logg,elogg = momenta(samples[:,1])
+#MH,eMH = momenta(samples[:,2])
+vbroad,evbroad= momenta(samples[:,1])
 
 print('----------------------------------')
 print('Results for '+name)
 print('----------------------------------')
 print('Teff   = {0:6.0f} +- {1:6.0f} K'.format(Teff,eTeff))
-print('log(g) = {0:6.2f} +- {1:6.2f} dex'.format(logg,elogg))
-print('[Fe/H] = {0:6.2f} +- {1:6.2f} dex'.format(MH,eMH))
+#print('log(g) = {0:6.2f} +- {1:6.2f} dex'.format(logg,elogg))
+#print('[Fe/H] = {0:6.2f} +- {1:6.2f} dex'.format(MH,eMH))
 print('Vbroad = {0:6.2f} +- {1:6.2f} km/s'.format(vbroad,evbroad))
 print('----------------------------------')
 print(' ')
